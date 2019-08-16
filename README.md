@@ -239,6 +239,137 @@ Compile (build) and smile!
 
 ###Notes for Kotlin
 
+Kotlin can build libraries for both IOS and Android using gradle, either in Android Studio or console.
+
+Create directory and a build.gradle.kts file for your library:
+```
+mkdir $Mylib
+touch $Mylib/build.gradle.kts
+```
+In this project i created an Android Studio project in the same directory as i created my $Mylib directory.
+This made it really easy to import $Mylib into Android Studio both using it and creating a framework for IOS.
+
+Import $Mylib into your settings.gradle file in your Android Studio project:
+```
+include: '$Mylib'
+```
+
+Edit the build.gradle.kts file:
+```
+import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+
+plugins {
+    kotlin("multiplatform")
+}
+
+kotlin {
+    //select iOS target platform depending on the Xcode environment variables
+    val iOSTarget: (String, KotlinNativeTarget.() -> Unit) -> KotlinNativeTarget =
+        if (System.getenv("SDK_NAME")?.startsWith("iphoneos") == true)
+            ::iosArm64
+        else
+            ::iosX64
+
+    iOSTarget("ios") {
+        binaries {
+            framework {
+                baseName = "$Mylib"
+            }
+        }
+    }
+
+    jvm("android")
+
+    sourceSets["commonMain"].dependencies {
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-common")
+    }
+
+    sourceSets["androidMain"].dependencies {
+        implementation("org.jetbrains.kotlin:kotlin-stdlib")
+    }
+}
+
+val packForXcode by tasks.creating(Sync::class) {
+    val targetDir = File(buildDir, "xcode-frameworks")
+
+    /// selecting the right configuration for the iOS
+    /// framework depending on the environment
+    /// variables set by Xcode build
+    val mode = System.getenv("CONFIGURATION") ?: "DEBUG"
+    val framework = kotlin.targets
+                          .getByName<KotlinNativeTarget>("ios")
+                          .binaries.getFramework(mode)
+    inputs.property("mode", mode)
+    dependsOn(framework.linkTask)
+
+    from({ framework.outputDirectory })
+    into(targetDir)
+
+    /// generate a helpful ./gradlew wrapper with embedded Java path
+    doLast {
+        val gradlew = File(targetDir, "gradlew")
+        gradlew.writeText("#!/bin/bash\n"
+            + "export 'JAVA_HOME=${System.getProperty("java.home")}'\n"
+            + "cd '${rootProject.rootDir}'\n"
+            + "./gradlew \$@\n")
+        gradlew.setExecutable(true)
+    }
+}
+
+tasks.getByName("build").dependsOn(packForXcode)
+```
+
+```
+package com.jetbrains.handson.mpp.mobile
+```
+Example Kotlin method:
+```
+package com.jetbrains.handson.mpp.mobile
+
+fun $kotlinMethodName() : String {
+  return "Hello World from Kotlin"
+}
+```
+
+In this project the tutorial followed recommended to have the following path for the "common" Kotlin:
+```
+$Mylib/src/commonMain/kotlin/common.kt
+```
+If different methods are needed for Android/IOS the methods would be added to the file in the following path ():
+```
+$Mylib/src/androidMain/kotlin/actual.kt
+```
 ####Xcode
 
+Build the framework either in Android Studio gradle tab or in your console with:
+```
+./gradlew :$Mylib:packForXcode
+```
+
+Import the framework to Xcode and set the "Framework Search Paths" in the build settings to:
+```
+$Mylib/build/xcode-frameworks
+```
+
+Add a new "Run Script" to Xcode so that the Gradle build prepares $Mylib before each run:
+```
+cd "$SRCROOT/../../SharedCode/build/xcode-frameworks"
+./gradlew :SharedCode:packForXCode -PXCODE_CONFIGURATION=${CONFIGURATION}
+```
+
+Swift method-calling example:
+```
+label.text = CommonKt.$kotlinMethodName()
+```
+
 ####Android Studio
+
+Edit the app/build.graddle:
+```
+implementation project(':$Mylib')
+```
+
+Import the library to your Activity:
+```
+import com.jetbrains.handson.mpp.mobile.$kotlinMethodName
+```
