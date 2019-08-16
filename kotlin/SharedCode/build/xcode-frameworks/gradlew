@@ -1,0 +1,4 @@
+#!/bin/bash
+export 'JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-12.0.2.jdk/Contents/Home'
+cd '/Users/jim/projects/hello-cross-plattform-mobile/kotlin'
+./gradlew $@

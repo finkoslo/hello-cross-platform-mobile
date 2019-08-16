@@ -1,0 +1,13 @@
+[package]
+name = "hello"
+version = "0.1.0"
+authors = ["jornmarkus <jornmarkusjakobsen@gmail.com>"]
+description = "Hello world static lib"
+
+[target.'cfg(target_os="android")'.dependencies]
+jni = { version = "0.5", default-features = false }
+
+[lib]
+name = "hello"
+#crate-type = ["staticlib", "cdylib"]
+crate-type = ["dylib"]

@@ -1,0 +1,12 @@
+/Users/jim/projects/hello-cross-plattform-mobile/rust/cargo/target/aarch64-linux-android/release/deps/combine-caa778664d7b9760.rmeta: /Users/jim/.cargo/registry/src/github.com-1ecc6299db9ec823/combine-2.5.2/src/lib.rs /Users/jim/.cargo/registry/src/github.com-1ecc6299db9ec823/combine-2.5.2/src/primitives.rs /Users/jim/.cargo/registry/src/github.com-1ecc6299db9ec823/combine-2.5.2/src/combinator.rs /Users/jim/.cargo/registry/src/github.com-1ecc6299db9ec823/combine-2.5.2/src/range.rs /Users/jim/.cargo/registry/src/github.com-1ecc6299db9ec823/combine-2.5.2/src/byte.rs /Users/jim/.cargo/registry/src/github.com-1ecc6299db9ec823/combine-2.5.2/src/char.rs
+
+/Users/jim/projects/hello-cross-plattform-mobile/rust/cargo/target/aarch64-linux-android/release/deps/libcombine-caa778664d7b9760.rlib: /Users/jim/.cargo/registry/src/github.com-1ecc6299db9ec823/combine-2.5.2/src/lib.rs /Users/jim/.cargo/registry/src/github.com-1ecc6299db9ec823/combine-2.5.2/src/primitives.rs /Users/jim/.cargo/registry/src/github.com-1ecc6299db9ec823/combine-2.5.2/src/combinator.rs /Users/jim/.cargo/registry/src/github.com-1ecc6299db9ec823/combine-2.5.2/src/range.rs /Users/jim/.cargo/registry/src/github.com-1ecc6299db9ec823/combine-2.5.2/src/byte.rs /Users/jim/.cargo/registry/src/github.com-1ecc6299db9ec823/combine-2.5.2/src/char.rs
+
+/Users/jim/projects/hello-cross-plattform-mobile/rust/cargo/target/aarch64-linux-android/release/deps/combine-caa778664d7b9760.d: /Users/jim/.cargo/registry/src/github.com-1ecc6299db9ec823/combine-2.5.2/src/lib.rs /Users/jim/.cargo/registry/src/github.com-1ecc6299db9ec823/combine-2.5.2/src/primitives.rs /Users/jim/.cargo/registry/src/github.com-1ecc6299db9ec823/combine-2.5.2/src/combinator.rs /Users/jim/.cargo/registry/src/github.com-1ecc6299db9ec823/combine-2.5.2/src/range.rs /Users/jim/.cargo/registry/src/github.com-1ecc6299db9ec823/combine-2.5.2/src/byte.rs /Users/jim/.cargo/registry/src/github.com-1ecc6299db9ec823/combine-2.5.2/src/char.rs
+
+/Users/jim/.cargo/registry/src/github.com-1ecc6299db9ec823/combine-2.5.2/src/lib.rs:
+/Users/jim/.cargo/registry/src/github.com-1ecc6299db9ec823/combine-2.5.2/src/primitives.rs:
+/Users/jim/.cargo/registry/src/github.com-1ecc6299db9ec823/combine-2.5.2/src/combinator.rs:
+/Users/jim/.cargo/registry/src/github.com-1ecc6299db9ec823/combine-2.5.2/src/range.rs:
+/Users/jim/.cargo/registry/src/github.com-1ecc6299db9ec823/combine-2.5.2/src/byte.rs:
+/Users/jim/.cargo/registry/src/github.com-1ecc6299db9ec823/combine-2.5.2/src/char.rs:
