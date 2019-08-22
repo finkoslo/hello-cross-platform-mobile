@@ -8,7 +8,7 @@
         tools:context=".MainActivity">
 
     <TextView
-            android:text="change me"
+            android:text="CLICK ME"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/testView" app:layout_constraintTop_toTopOf="parent"

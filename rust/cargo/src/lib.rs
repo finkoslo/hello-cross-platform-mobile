@@ -2,7 +2,7 @@ use std::os::raw::{c_char};
 use std::ffi::{CString};
 
 #[no_mangle]
-pub extern fn helloworld() -> *mut c_char {
+pub extern fn helloworld(to: *const c_char) -> *mut c_char {
     CString::new("Hello world from Rust".to_owned()).unwrap().into_raw()
 }
 
@@ -13,7 +13,7 @@ pub extern fn hellofree(s: *mut c_char) {
         CString::from_raw(s)
     };
 }
-/// Expose the JNI interface for android below
+/*
 #[cfg(target_os="android")]
 #[allow(non_snake_case)]
 pub mod android {
@@ -35,3 +35,4 @@ pub mod android {
         output.into_inner()
     }
 }
+*/

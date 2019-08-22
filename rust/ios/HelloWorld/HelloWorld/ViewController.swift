@@ -10,11 +10,18 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var change_me: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         let rustHello = RustHello()
-        print(rustHello.sayHello(to: ""))
+        let rustApi  = RustApi()
+        print(rustApi.sayHello())
+    }
+    
+    @IBAction func change_method(_ sender: Any) {
+        let rustHello = RustHello()
+        change_me.text = rustHello.sayHello(to: "")
     }
 }
-

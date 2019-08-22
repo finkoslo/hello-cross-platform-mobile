@@ -17,6 +17,8 @@
 		382E6D152302A16400BCDD14 /* libhello.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 382E6D142302A16400BCDD14 /* libhello.a */; };
 		382E6D172302A17400BCDD14 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 382E6D162302A17400BCDD14 /* libresolv.tbd */; };
 		382E6D1B2302A2EF00BCDD14 /* RustHello.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382E6D1A2302A2EF00BCDD14 /* RustHello.swift */; };
+		38D41307230C110200B77BC8 /* libapi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D41306230C110200B77BC8 /* libapi.a */; };
+		38D41309230C118400B77BC8 /* RustApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D41308230C118400B77BC8 /* RustApi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,9 @@
 		382E6D182302A1B300BCDD14 /* hello.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = hello.h; path = ../../cargo/src/hello.h; sourceTree = "<group>"; };
 		382E6D192302A1D500BCDD14 /* Hello-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hello-Bridging-Header.h"; sourceTree = "<group>"; };
 		382E6D1A2302A2EF00BCDD14 /* RustHello.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RustHello.swift; sourceTree = "<group>"; };
+		38D41305230C10E700B77BC8 /* api.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = api.h; sourceTree = "<group>"; };
+		38D41306230C110200B77BC8 /* libapi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libapi.a; sourceTree = "<group>"; };
+		38D41308230C118400B77BC8 /* RustApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RustApi.swift; sourceTree = "<group>"; wrapsLines = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +69,7 @@
 			files = (
 				382E6D172302A17400BCDD14 /* libresolv.tbd in Frameworks */,
 				382E6D152302A16400BCDD14 /* libhello.a in Frameworks */,
+				38D41307230C110200B77BC8 /* libapi.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,8 +94,10 @@
 			isa = PBXGroup;
 			children = (
 				382E6D1A2302A2EF00BCDD14 /* RustHello.swift */,
+				38D41308230C118400B77BC8 /* RustApi.swift */,
 				382E6D192302A1D500BCDD14 /* Hello-Bridging-Header.h */,
 				382E6D182302A1B300BCDD14 /* hello.h */,
+				38D41305230C10E700B77BC8 /* api.h */,
 				382E6CE42302A12600BCDD14 /* HelloWorld */,
 				382E6CF92302A12700BCDD14 /* HelloWorldTests */,
 				382E6D042302A12700BCDD14 /* HelloWorldUITests */,
@@ -144,6 +152,7 @@
 			children = (
 				382E6D162302A17400BCDD14 /* libresolv.tbd */,
 				382E6D142302A16400BCDD14 /* libhello.a */,
+				38D41306230C110200B77BC8 /* libapi.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -279,6 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38D41309230C118400B77BC8 /* RustApi.swift in Sources */,
 				382E6D1B2302A2EF00BCDD14 /* RustHello.swift in Sources */,
 				382E6CE82302A12600BCDD14 /* ViewController.swift in Sources */,
 				382E6CE62302A12600BCDD14 /* AppDelegate.swift in Sources */,
@@ -463,7 +473,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = "/Users/jim/projects/hello-cross-plattform-mobile/rust/cargo/target/universal/release";
+				LIBRARY_SEARCH_PATHS = (
+					"/Users/jim/projects/hello-cross-plattform-mobile/rust/cargo/target/universal/release",
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fink.HelloWorld;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/jim/projects/hello-cross-plattform-mobile/rust/ios/HelloWorld/Hello-Bridging-Header.h";
@@ -483,7 +496,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = "/Users/jim/projects/hello-cross-plattform-mobile/rust/cargo/target/universal/release";
+				LIBRARY_SEARCH_PATHS = (
+					"/Users/jim/projects/hello-cross-plattform-mobile/rust/cargo/target/universal/release",
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fink.HelloWorld;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/jim/projects/hello-cross-plattform-mobile/rust/ios/HelloWorld/Hello-Bridging-Header.h";
